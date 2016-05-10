@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>Book a taxi</title>
+		<link rel="stylesheet" type="text/css" href="style/style.css"/>
+		<script type="text/javascript" src="xhr.js"> </script>
+		<script type="text/javascript" src="submit.js"> </script>
+		
+	</head>
+
+	<body>
+		<div id="main">
+			<form name="bookingForm">
+				<label>Name:  <input type="text" name="clientName"/></label><br>
+				<label>Contact Number:  <input type="text" id="clientPh" name="ClientPh"/></label><br>
+				<br>
+					Pickup Address
+				<br>
+				<label>Unit Number:  <input type="text" name="unitNumb" size="4"/></label><br>
+				<label>Street Number:  <input type="text" name="StNum" size="8"/></label><br>
+				<label>Street Name:  <input type="text" name="StName" size="20"/></label><br>
+				<label>Suburb:  <input type="text" name="suburb" size="20"/></label><br>
+				<label>Destination Address:  <input type="text" name="DesAdd"/></label><br>
+				<label>Pickup Date:  <input id="thedate" type="date" name="date" size="10" value="today"/></label><br>
+				<label>Pickup Time:  <input type="text" id="thetime" name="time" size="5"/></label><br>
+				
+				<select name="ampm">
+				<option value ="am">am</option>
+				<option value ="pm">pm</option>
+				</select>
+				<br>
+				<br> <input name="submit" type="button" onClick="getData('submit.php','targetDiv', contactname.value, phone.value, unitnum.value, stnum.value, street.value, suburb.value, destination.value, date.value, time.value)" value="Request Taxi"><span id="loading" ></span>
+			</form>
+	</body>
+
+</html>
