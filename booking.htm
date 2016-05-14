@@ -1,3 +1,38 @@
+<script type=text/javascript">
+	window.onload = function(){
+		var x = new Date();
+		var date = x.toLocaleDateString();
+		document.getElementById("theDate").value = date;
+		var minutes = x.getMinutes() + 5;
+		var hour = x.getHours();
+		
+		if(minutes >= 0 && minutes <= 15){
+			minutes = 15;
+		} else if (minutes > 15 && minutes <= 30){
+			minutes = 30;
+		} else if (minutes > 30 && minutes <= 45){
+			minutes = 45;
+		} else if (minutes > 45 && minutes <= 60){
+			minutes = "00";
+			hour++;
+		} else {
+			hour++;
+			minutes = 15;
+		}
+		
+		if(hour == 0){
+			hour = 12;
+		}
+		if(hour > 12){
+			document.forms["bookingForm"]["ampm"].value = "pm";
+			hour -= 12;
+		}
+		var time = hour + ":" + minutes;
+		document.getElementById("theTime").value = time;
+		
+	};
+</script>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -19,20 +54,20 @@
 				<br>
 					Pickup Address
 				<br>
-				<label>Unit Number:  <input type="text" name="unitNumb" size="4"/></label><br>
-				<label>Street Number:  <input type="text" name="StNum" size="8"/></label><br>
-				<label>Street Name:  <input type="text" name="StName" size="20"/></label><br>
+				<label>Unit Number:  <input type="text" name="unitNum" size="4"/></label><br>
+				<label>Street Number:  <input type="text" name="stNum" size="8"/></label><br>
+				<label>Street Name:  <input type="text" name="stName" size="20"/></label><br>
 				<label>Suburb:  <input type="text" name="suburb" size="20"/></label><br>
-				<label>Destination Address:  <input type="text" name="DesAdd"/></label><br>
-				<label>Pickup Date:  <input id="thedate" type="date" name="date" size="10" value="today"/></label><br>
-				<label>Pickup Time:  <input type="text" id="thetime" name="time" size="5"/></label><br>
+				<label>Destination Address:  <input type="text" name="desAdd"/></label><br>
+				<label>Pickup Date:  <input id="theDate" type="date" name="date" size="10" value="today"/></label><br>
+				<label>Pickup Time:  <input type="text" id="theTime" name="time" size="5"/></label><br>
 				
 				<select name="ampm">
 				<option value ="am">am</option>
 				<option value ="pm">pm</option>
 				</select>
 				<br>
-				<br> <input name="submit" type="button" onClick="getData('submit.php','targetDiv', contactname.value, phone.value, unitnum.value, stnum.value, street.value, suburb.value, destination.value, date.value, time.value)" value="Request Taxi"><span id="loading" ></span>
+				<br> <input name="submit" type="button" onClick="getData('submit.php','targetDiv', clientName.value, clientPh.value, unitNum.value, stNum.value, stName.value, suburb.value, desAdd.value, date.value, time.value)" value="Request Taxi"><span id="loading" ></span>
 			</form>
 	</body>
 
