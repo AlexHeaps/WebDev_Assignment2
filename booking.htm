@@ -38,37 +38,128 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Book a taxi</title>
-		<link rel="stylesheet" type="text/css" href="style/style.css"/>
-		<script type="text/javascript" src="xhr.js"> </script>
-		<script type="text/javascript" src="submit.js"> </script>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<title>Taxi-Zee</title>
+		
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="css/taxi.css" rel="stylesheet">
+		
+		<script type="text/javascript" src="js/xhr.js"> </script>
+		<script type="text/javascript" src="js/submit.js"> </script>
 		
 	</head>
 
 	<body>
-		<div id="main">
-			<form name="bookingForm">
-				<label>Name:  <input type="text" name="clientName"/></label><br>
-				<label>Contact Number:  <input type="text" id="clientPh" name="ClientPh"/></label><br>
-				<br>
-					Pickup Address
-				<br>
-				<label>Unit Number:  <input type="text" name="unitNum" size="4"/></label><br>
-				<label>Street Number:  <input type="text" name="stNum" size="8"/></label><br>
-				<label>Street Name:  <input type="text" name="stName" size="20"/></label><br>
-				<label>Suburb:  <input type="text" name="suburb" size="20"/></label><br>
-				<label>Destination Address:  <input type="text" name="desAdd"/></label><br>
-				<label>Pickup Date:  <input id="theDate" type="date" name="date" size="10" value="today"/></label><br>
-				<label>Pickup Time:  <input type="text" id="theTime" name="time" size="5"/></label><br>
+	
+	<div class="brand">Taxi-Zee</div>
+		<div class="address-bar">Auckland | Wellington | Christchurch</div>
+		
+		<!-- Navigation Bar -->
+		
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.php">Home</a>
+						</li>
+						<li>
+							<a href="booking.htm">Bookings</a>
+						</li>
+						<li>
+							<a href="admin.htm">Admin</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- End Navigation Bar -->
+		
+		<div class="container">
+			
+			
+			<div class="row">
+				<div class="box">
+					<div class="col-lg-12">
+						<hr>
+						<h2 class="intro-text text-center">Booking
+							<strong>Form</strong>
+						</h2>
+						<hr>
+						<p>Make your booking here, and we will ensure you're at your destination before you know it!</p>
+						<form role="form">
+							<div class="row">
+								
+								<div class="form-group col-lg-4">
+								<label>Unit Number:  <input type="text" name="unitNum" size="4"/></label>
+								</div>
+								
+								<div class="form-group col-lg-4">
+								<label>Street Number:  <input type="text" name="stNum" size="8"/></label>
+								</div>
+								
+								<div class="form-group col-lg-4">
+								<label>Street Name:  <input type="text" name="stName" size="20"/></label>
+								</div>
+								
+								<div class="form-group col-lg-4">
+								<label>Suburb:  <input type="text" name="suburb" size="20"/></label>
+								</div>
+								
+								<div class="form-group col-lg-4">
+								<label>Destination Address:  <input type="text" name="desAdd"/></label>
+								</div>
+								
+								<div class="form-group col-lg-4">
+								<label>Pickup Date:  <input id="theDate" type="date" name="date" size="10" value="today"/></label>
+								</div>
+								
+								<div class="form-group col-lg-4">
+								<label>Pickup Time:  <input type="text" id="theTime" name="time" size="5"/></label>
+								</div>
+								
+								<div class="clearfix"></div>
+								<div class="form-group col-lg-4"> 
+									<select name="ampm">
+									<option value ="am">am</option>
+									<option value ="pm">pm</option>
+									</select>
+								</div>
+								<div class="form-group col-lg-12">
+									<input name="submit" type="button" onClick="getData('submit.php','targetDiv', clientName.value, clientPh.value, unitNum.value, stNum.value, stName.value, suburb.value, desAdd.value, date.value, time.value)" value="Request Taxi">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		
+			<div id="main">
+				<form name="bookingForm">
+					<label>Name:  <input type="text" name="clientName"/></label><br>
+					<label>Contact Number:  <input type="text" id="clientPh" name="ClientPh"/></label><br>
+					<br>
+						Pickup Address
+					<br>
+					<label>Unit Number:  <input type="text" name="unitNum" size="4"/></label><br>
+					<label>Street Number:  <input type="text" name="stNum" size="8"/></label><br>
+					<label>Street Name:  <input type="text" name="stName" size="20"/></label><br>
+					<label>Suburb:  <input type="text" name="suburb" size="20"/></label><br>
+					<label>Destination Address:  <input type="text" name="desAdd"/></label><br>
+					<label>Pickup Date:  <input id="theDate" type="date" name="date" size="10" value="today"/></label><br>
+					<label>Pickup Time:  <input type="text" id="theTime" name="time" size="5"/></label><br>
+					</form>
 				
-				<select name="ampm">
-				<option value ="am">am</option>
-				<option value ="pm">pm</option>
-				</select>
-				<br>
-				<br> <input name="submit" type="button" onClick="getData('submit.php','targetDiv', clientName.value, clientPh.value, unitNum.value, stNum.value, stName.value, suburb.value, desAdd.value, date.value, time.value)" value="Request Taxi"><span id="loading" ></span>
-			</form>
+			</div>
 	</body>
 
 </html>

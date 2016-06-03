@@ -2,26 +2,88 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
-		<title>Cab Hire</title>
-		<link rel="stylesheet" type="text/css" href="style/style.css"/>
-		<script type="text/javascript" src="xhr.js"></script>
-		<script type="text/javascript" src="requests.js"></script>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		
+		<title>Taxi-Zee</title>
+		
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="css/taxi.css" rel="stylesheet">
+		
+		
+		<script type="text/javascript" src="js/xhr.js"></script>
+		<script type="text/javascript" src="js/requests.js"></script>
+
 	</head>
 	
 	<body>
-		<div id="container">
-			<div id="main">
-				<form>
-					<label>Reference Number: <input type="text" name="ref"/> </label>
-					<input type="button" onclick="assignCab('assign.php', 'infoDiv', ref.value)" value="Assign Taxi"/>
-				</form>	
-				
-				<input type="button" onclick="getRequests('requests.php', 'targetDiv')" name="booking" value="Get Requests"/>
-				
-			<div id="infoDiv"></div>
-			<div id="targetDiv"></div>
+	
+	<div class="brand">Taxi-Zee</div>
+		<div class="address-bar">Auckland | Wellington | Christchurch</div>
+		
+		<!-- Navigation Bar -->
+		
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="index.php">Home</a>
+						</li>
+						<li>
+							<a href="booking.htm">Bookings</a>
+						</li>
+						<li>
+							<a href="admin.htm">Admin</a>
+						</li>
+					</ul>
+				</div>
 			</div>
+		</nav>
+		
+		<!-- End Navigation Bar -->
+		
+		
+		<div id="container">
+		
+		
+			<div class="row" id="main">
+				<div class="box">
+					<div class="col-lg-12">
+					<hr>
+					<h2 class="intro-text text-center">Admin
+						<strong>Area</strong>
+					<hr>
+						
+						<p>Assign Drivers & Request Forms here!</p>
+						<form role="form">
+							<div class="row">
+							
+								<div class="form-group col-lg-4">
+								<label>Reference Number: <input type="text" name="ref"/> </label>
+								</div>
+								
+								<div class="form-group col-lg-12">
+								<input type="button" onclick="assignCab('assign.php', 'infoDiv', ref.value)" value="Assign Taxi"/>
+								</div>
+								
+								<div class="form-group col-lg-12">
+								<input type="button" onclick="getRequests('requests.php', 'targetDiv')" name="booking" value="Get Requests"/>
+								</div>
+							</div>
+						</form>	
+				
+				<div id="infoDiv"></div>
+				<div id="targetDiv"></div>
+			</div>
+		
+		
 		</div>
 	</body>
 	
